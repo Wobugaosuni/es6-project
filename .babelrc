@@ -1,0 +1,3 @@
+{
+  "presets": ["es2015"]  // 需要安装 `babel-preset-es2015`的包
+}
