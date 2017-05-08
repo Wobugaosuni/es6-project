@@ -47,9 +47,9 @@ gulp.task('scripts', () => {
 
     // 1-3步，使得server/public/js有两个js文件：编译后文件，编译后经过压缩重命名的文件
 
-    // 1. 把编译后的文件拷贝到server/public/javascripts目录下
+    // 1. 把编译后的文件拷贝到server/public/js目录下
     // 放在server目录下原因：server需要拿到编译后的js在服务中跑起来
-    .pipe(gulp.dest('server/public/javascripts'))
+    .pipe(gulp.dest('server/public/js'))
 
     // 2. 把编译后的文件复制一份，重命名，但基础是先进行uglify
     .pipe(rename({
