@@ -8,7 +8,7 @@ import livereload from 'gulp-livereload';  //热更新，文件修改后浏览�
 import args from './util/args';  // 处理命令行参数解析的包
 
 gulp.task('pages', () => {
-  return gulp.src('app/**/*.ejs')  // 打开app下的所有ejs文件，包括各个嵌套目录
+  return gulp.src('app/**/*.jade')  // 打开app下的所有jade文件，包括各个嵌套目录
 
     // 把所有模板文件拷贝到server/views目录下
     .pipe(gulp.dest('server'))

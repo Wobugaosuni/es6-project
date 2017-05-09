@@ -14,6 +14,6 @@ gulp.task('browser', (callback) => {
 
   // app/**/*.js文件发生改动时，执行相应的构建脚本（scripts.js）
   gulp.watch('a/**/*.js', ['scripts']);
-  gulp.watch('app/**/*.ejs', ['pages']);
+  gulp.watch('app/**/*.jade', ['pages']);
   gulp.watch('app/**/*.css', ['css']);
 });

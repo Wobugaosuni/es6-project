@@ -21,9 +21,9 @@ gulp.task('serve', (callback) => {
   server.start();
 
   // 服务器下文件改动的热更新
-  // 监听server目录下的ejs和js文件
+  // 监听server目录下的jade和js文件
   gulp.watch(
-    ['server/views/**/*.ejs', 'server/public/**/*.js'],
+    ['server/views/**/*.jade', 'server/public/**/*.js'],
     function (file) {
       // 监听后的处理，通知服务器文件发生了改变，服务器做出相应的处理
       server.notify.apply(server, [file]);
