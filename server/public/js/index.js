@@ -49,9 +49,11 @@
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	__webpack_require__(2);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -65,6 +67,22 @@
 
 	// 把结果打到页面上
 	document.body.innerHTML = test.a;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	// 块级作用域：大括号包围内的就是块级作用域，在大括号外，变量生命周期结束
+	function test() {
+	  for (var _i = 1; _i < 3; _i++) {
+	    console.log(_i);
+	  }
+	  console.log(i);
+	}
+
+	test();
 
 /***/ })
 /******/ ]);
