@@ -13,7 +13,7 @@ gulp.task('browser', (callback) => {
   if (!args.watch) return callback();
 
   // app/**/*.js文件发生改动时，执行相应的构建脚本（scripts.js）
-  gulp.watch('app/**/*.js', ['scripts']);
+  gulp.watch('a/**/*.js', ['scripts']);
   gulp.watch('app/**/*.ejs', ['pages']);
   gulp.watch('app/**/*.css', ['css']);
 });

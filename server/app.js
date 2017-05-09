@@ -22,6 +22,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 模板更新后自动刷新，此命令放在前一条之后才生效
+app.use(
+  require('connect-livereload')()
+);
+
 app.use('/', index);
 app.use('/users', users);
 
