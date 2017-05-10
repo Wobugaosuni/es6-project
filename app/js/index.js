@@ -1,6 +1,6 @@
 class Test{
   constructor () {
-    this.a = 'hello world'
+    this.a = 'hello world man'
   }
 }
 

@@ -60,7 +60,7 @@
 	var Test = function Test() {
 	  _classCallCheck(this, Test);
 
-	  this.a = 'hello world';
+	  this.a = 'hello world man';
 	};
 
 	var test = new Test();
