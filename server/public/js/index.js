@@ -60,7 +60,7 @@
 	var Test = function Test() {
 	  _classCallCheck(this, Test);
 
-	  this.a = 'hello world man';
+	  this.a = 'hello world';
 	};
 
 	var test = new Test();
@@ -73,16 +73,6 @@
 /***/ (function(module, exports) {
 
 	"use strict";
-
-	// 块级作用域：大括号包围内的就是块级作用域，在大括号外，变量生命周期结束
-	function test() {
-	  for (var _i = 1; _i < 3; _i++) {
-	    console.log(_i);
-	  }
-	  console.log(i);
-	}
-
-	test();
 
 /***/ })
 /******/ ]);
