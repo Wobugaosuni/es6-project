@@ -8718,154 +8718,39 @@
 
 	'use strict';
 
-	var _templateObject = _taggedTemplateLiteral(['i am ', ',', ''], ['i am ', ',', '']),
-	    _templateObject2 = _taggedTemplateLiteral(['Hi\n', ''], ['Hi\\n', '']);
-
-	function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-	/**
-	 * es6中unicode的表示
-	 */
 	{
-	  console.log('a', 'a');
+	  console.log('0b', 247); // 二进制数值的表示法：以0b开头 // 247
 
-	  console.log('s', '\u20BB7');
-	  console.log('s', '\uD842\uDFB7'); // 正确的unicode表示方法
-	}
-
-	{
-	  /**
-	   * 根据字符获取码值
-	   * es5中对unicode的处理
-	   */
-	  var string = '𠮷';
-	  console.log('string length:', string.length); // 2。 码值大于两个字节，每两个字节是一个长度
-
-	  console.log('string.charAt(0):', string.charAt(0)); // 取第一个字符
-	  console.log('string.charAt(1):', string.charAt(1)); // 取第二个字符
-
-	  console.log('string.charCodeAt(0):', string.charCodeAt(0)); // 取第一个字符的unicode编码的码值
-	  console.log('string.charCodeAt(1):', string.charCodeAt(1)); // 取第二个字符的unicode编码的码值
-
-	  /**
-	   * 根据字符获取码值
-	   * es6中对unicode的处理
-	   */
-	  var string2 = '𠮷a';
-	  console.log('string2 length:', string2.length);
-
-	  console.log('string2.codePointAt(0)', string2.codePointAt(0)); // 取第一个字符的unicode编码的码值，默认10进制
-	  console.log('string2.codePointAt(1)', string2.codePointAt(1));
-	  console.log('string2.codePointAt(2)', string2.codePointAt(2));
-	  console.log('string2.codePointAt(0).toString(16)', string2.codePointAt(0).toString(16)); // 转换成16进制
-	}
-
-	{
-	  /**
-	   * 根据码值获取字符
-	   * 两种方法区别在于：能不能处理大于两个字节的字符
-	   */
-	  console.log(String.fromCharCode('0x20bb7')); //es5，不能
-
-	  console.log(String.fromCodePoint('0x20bb7')); // es6，能
+	  console.log('0o', 503); // 八进制数值的表示法：以0o开头 // 503
 	}
 
 	/**
-	 * 字符串遍历器接口
+	 * 检测传入的参数是否是一个有穷数（finite number）
 	 */
 	{
-	  var _string = '\uD842\uDFB7abc';
-	  console.log(_string.length);
-
-	  // es5
-	  for (var i = 0; i < _string.length; i++) {
-	    console.log('item', _string[i]);
-	  }
-
-	  // es6 字符串遍历器接口
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
-
-	  try {
-	    for (var _iterator = _string[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      var item = _step.value;
-
-	      console.log('item', item);
-	    }
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator.return) {
-	        _iterator.return();
-	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
-	      }
-	    }
-	  }
+	  console.log('15', Number.isFinite(15));
+	  console.log('NaN', Number.isFinite(NaN));
+	  console.log('1/0', Number.isFinite(1 / 0));
 	}
 
 	/**
-	 * 判断字符串是否包含某些字符
+	 * 检测传入的值是否是 NaN
 	 */
 	{
-	  var _string2 = 'string';
-	  console.log('includes', _string2.includes('s'));
+	  console.log('NaN', Number.isNaN(NaN));
+	  console.log('21', Number.isNaN(21));
+	}
 
-	  console.log('start', _string2.startsWith('str'));
-
-	  console.log('end', _string2.endsWith('ing'));
+	{
+	  console.log('Number.MAX_SAFE_INTEGER', Number.MAX_SAFE_INTEGER); // 最大安全整数
 	}
 
 	/**
-	 * 重复
+	 * 判断数字符号
 	 */
 	{
-	  var _string3 = 'abc';
-
-	  console.log('repeat', _string3.repeat(2));
-	}
-
-	/**
-	 * 字符串补白:约定长度，不够则补
-	 * 处理日期、号码等情况
-	 * syntax: str.padEnd(targetLength [, padString])
-	 */
-	{
-	  console.log('padStart', '1'.padStart(2, '0')); // 向前补
-	  console.log('padEnd', '21'.padEnd(4, '00')); // 向后补
-	}
-
-	/**
-	 * 标签模板
-	 * 作用1：过滤html字符串
-	 * 作用2：处理多语言转换
-	 */
-	{
-	  var abc = function abc(param1, param2, param3) {
-	    // console.log('param', param1, param2, param3);
-	    return param1 + param2 + param3;
-	  };
-
-	  var user = {
-	    name: 'list',
-	    info: 'hello world'
-	  };
-
-	  abc(_templateObject, user.name, user.info);
-	  console.log(abc(_templateObject, user.name, user.info));
-	}
-
-	/**
-	 * 斜杠失效
-	 */
-	{
-	  console.log('raw:', String.raw(_templateObject2, 1 + 2)); // '\n'换行符没有生效。原因：Sring.raw的api对斜杠进行了转义：在斜杠前又加了斜杠
-	  console.log('Hi\n' + (1 + 2));
+	  console.log('sign1', Math.sign(5)); // 1
+	  console.log('sign2', Math.sign('jd')); // NaN
 	}
 
 /***/ })

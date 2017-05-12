@@ -11,4 +11,4 @@ document.body.innerHTML = test.a;
 
 // 引入兼容库
 import 'babel-polyfill';
-import './class/string.js';
+import './class/number.js';
