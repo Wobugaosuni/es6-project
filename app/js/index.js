@@ -9,4 +9,6 @@ let test = new Test();
 // 把结果打到页面上
 document.body.innerHTML = test.a;
 
-import './class/RegEx.js';
+// 引入兼容库
+import 'babel-polyfill';
+import './class/string.js';
