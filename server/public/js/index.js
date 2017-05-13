@@ -68,7 +68,7 @@
 	var test = new Test();
 
 	// 把结果打到页面上
-	document.body.innerHTML = test.a;
+	// document.body.innerHTML = test.a;
 
 	// 引入兼容库
 
@@ -8718,39 +8718,107 @@
 
 	'use strict';
 
-	{
-	  console.log('0b', 247); // 二进制数值的表示法：以0b开头 // 247
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-	  console.log('0o', 503); // 八进制数值的表示法：以0o开头 // 503
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	/**
+	 * Array.from()
+	 */
+	{
+	  var pElements = document.querySelectorAll('p');
+	  console.log('pElements', pElements);
+	  console.log('pElements type:', typeof pElements === 'undefined' ? 'undefined' : _typeof(pElements));
+
+	  var pArr = Array.from(pElements);
+	  console.log('pArr', pArr);
+	  console.log('pArr type:', typeof pArr === 'undefined' ? 'undefined' : _typeof(pArr));
+
+	  pElements.forEach(function (item) {
+	    console.log('item content：', item.textContent);
+	  });
 	}
 
 	/**
-	 * 检测传入的参数是否是一个有穷数（finite number）
+	 * Array.keys()
+	 * Array.values()
 	 */
 	{
-	  console.log('15', Number.isFinite(15));
-	  console.log('NaN', Number.isFinite(NaN));
-	  console.log('1/0', Number.isFinite(1 / 0));
+	  var iterator = ['1', 'c'].keys();
+	  console.log('iterator', iterator);
+
+	  var iterator2 = ['1', 'c'].values();
+	  console.log('iterator2', iterator2);
+
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+
+	  try {
+	    for (var _iterator = iterator[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var index = _step.value;
+
+	      console.log('index:', index);
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator.return) {
+	        _iterator.return();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+
+	  var _arr = ['1', 'c'];
+	  for (var _i = 0; _i < _arr.length; _i++) {
+	    var value = _arr[_i];
+	    console.log('value', value);
+	  }
 	}
 
 	/**
-	 * 检测传入的值是否是 NaN
+	 * Array.entries()
 	 */
 	{
-	  console.log('NaN', Number.isNaN(NaN));
-	  console.log('21', Number.isNaN(21));
-	}
+	  var _iteratorNormalCompletion2 = true;
+	  var _didIteratorError2 = false;
+	  var _iteratorError2 = undefined;
 
-	{
-	  console.log('Number.MAX_SAFE_INTEGER', Number.MAX_SAFE_INTEGER); // 最大安全整数
+	  try {
+	    for (var _iterator2 = ['1', 'c', 'kk'].entries()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	      var _step2$value = _slicedToArray(_step2.value, 2),
+	          _index = _step2$value[0],
+	          _value = _step2$value[1];
+
+	      console.log('index&values', _index, _value);
+	    }
+	  } catch (err) {
+	    _didIteratorError2 = true;
+	    _iteratorError2 = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	        _iterator2.return();
+	      }
+	    } finally {
+	      if (_didIteratorError2) {
+	        throw _iteratorError2;
+	      }
+	    }
+	  }
 	}
 
 	/**
-	 * 判断数字符号
+	 * Array.includes()
 	 */
 	{
-	  console.log('sign1', Math.sign(5)); // 1
-	  console.log('sign2', Math.sign('jd')); // NaN
+	  console.log('NaN', [1, 2, NaN].includes(NaN));
 	}
 
 /***/ })
