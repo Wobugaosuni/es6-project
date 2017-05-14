@@ -11,4 +11,4 @@ let test = new Test();
 
 // 引入兼容库
 import 'babel-polyfill';
-import './class/proxyAndreflect.js';
+import './class/class.js';
