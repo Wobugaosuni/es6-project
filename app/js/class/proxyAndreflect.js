@@ -70,3 +70,82 @@
   // 属性
   console.log('ownKeys', Object.keys(monitor)); // ["name", "_r"]
 }
+
+{
+  /**
+   * Reflect
+   */
+  let obj = {
+    time: '2017-03-11',
+    name: 'net',
+    _r: 123
+  };
+
+  console.log('reflect', Reflect.get(obj, 'time')); // 读取time属性
+
+  Reflect.set(obj, 'name', 'beach');
+  console.log('set', obj);
+
+  console.log('has', Reflect.has(obj, 'name'));
+}
+
+/**
+ * 应用
+ * 数据校验
+ * 条件和业务解耦
+ * 好处：有利于代码的维护，有利于提高代码整洁度、代码复用性、代码健壮性
+ */
+{
+  function validator (targetObj, validator) {
+    return new Proxy(targetObj, {
+      _validator: validator,
+
+      set(targetObj, key, value, proxy) {
+        if (targetObj.hasOwnProperty(key)) {  // 是否有这个属性
+
+          let personValidator = this._validator[key];
+
+          console.log('validator personValidator', personValidator);
+
+          if (!!personValidator(value)) {  // 如果value值通过personValidator校验
+            return Reflect.set(targetObj, key, value, proxy)
+            // return targetObj[key] = value // 拦截对象属性的设置
+
+          } else {
+            throw Error(`不能设置${key}到${value}`)
+          }
+
+        } else {
+          throw Error(`${key}不存在`)
+        }
+      }
+    })
+  }
+
+  const personValidators = {
+    name(value) {
+      return typeof value === 'string' // 名字需是字符串
+    },
+    age(value) {
+      return typeof value === 'number' && value >18  // 年龄需是数字且大于18
+    }
+  }
+
+  class Person{
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+      console.log('Person this', this);  // this指Person的实例
+      return validator(this, personValidators);
+    }
+  }
+
+  const person = new Person('lilei', 30);
+  console.info(person);
+
+  person.name = 'han mei';
+  console.info(person);
+
+  person.age = 19;
+  console.log(person);
+}
