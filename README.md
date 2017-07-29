@@ -14,7 +14,7 @@ npm install
 2. 编译
 ```bash
 ## 根目录下
-gulp
+gulp --watch
 ```
 
 3. 打开浏览器

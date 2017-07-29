@@ -82,7 +82,7 @@
     .then(function () {
       console.log('num', 3);
   }).catch(function (error) {
-    console.log('catch', error);
+    console.log('catch:', error);
   })
 }
 

@@ -8,7 +8,7 @@
 
   // 生成实例
   let v_parent = new Parent('hello');
-  console.log('实例', v_parent);
+  console.log('实例', v_parent.name);
 }
 
 {
