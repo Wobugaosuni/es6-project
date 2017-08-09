@@ -34,7 +34,7 @@ const args = yargs
   // 服务器的端口
   .option('port', {
     string: true,
-    default: 3000,
+    default: 3999,
     describe: 'server port'
   })
 

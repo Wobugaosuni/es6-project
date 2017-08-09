@@ -10,8 +10,8 @@ import args from './util/args';  // 处理命令行参数解析的包
 gulp.task('css', () => {
   return gulp.src('app/**/*.css')  // 打开app下的所有css文件，包括各个嵌套目录
 
-    // 把所有模板文件拷贝到server/public/stylesheets目录下
-    .pipe(gulp.dest('server/public/stylesheets'))
+    // 把所有模板文件拷贝到server/public/css目录下
+    .pipe(gulp.dest('server/public'))
 
     // 当命令行有相关选项时，执行热更新(css不需要编译，可有可无)
     // .pipe(gulpif(args.watch, livereload()))

@@ -3,10 +3,246 @@ html(lang="en")
 head
   meta(charset="UTF-8")
   title es6
+  link(rel="stylesheet", href="/css/reset.css")
+  link(rel="stylesheet", href="/css/layout.css")
+  link(rel="stylesheet", href="/css/lottery.css")
+
 body
   //- | test
   //- p sun
   //- p of
   //- p beach
-  script(src="/js/index.js",charset="utf-8")
+  #doc3.syy
+    #bd.kpc-bd
+      //
+      // 菜单栏
+      .mod-cz-hd
+
+        .hd.clearfix
+          .cz-logo.cz-syylogo
+            a(href="#")
+          h1.cz-name 11选5
+            span
+              |  第
+              em#curr_issue **
+              | 期
+          ul.cz-params.cz-params-kp
+            li 购彩剩余时间:
+            li#countdown
+            li 销售：9:00～22:00（78期） 10分钟开奖　返奖
+              b 59%
+          span.label.label-important.bg-ccc.state_el 暂停销售
+
+        .bd
+          .nav-cz-main.clearfix
+            ul.main
+              li.active
+                a(href="javascript:void(0)") 选号投注
+              li
+                a(href="javascript:void(0)") 遗漏数据
+              li
+                a(href="javascript:void(0)") 单式上传
+            .helper-nav
+              a(href="javascript:;") 购彩小助手
+              i.ico.ico-arrow02
+            ul.quirk
+              li
+                a(href="javascript:void(0)", target="_blank") 走势图表
+              li.divider |
+              li
+                a(href="javascript:void(0)", target="_blank") 杀号定胆
+              li.divider |
+              li
+                a#sd_plays(href="javascript:void(0)", target="_blank") 玩法介绍
+              li.divider |
+              li
+                a#sd_zhongjiang(href="javascript:void(0)", target="_blank") 胆拖奖金对照
+              li.divider |
+              li
+                a(href="javascript:void(0)", target="_blank") 倍投计算器
+
+      //
+      // 导航
+      .mod-cz-bd
+        .nav-cz-sub(style="position:relative;")
+          ul.clearfix#plays
+            li(desc="R2")
+              a(href="#") 任二
+            li(desc="R3")
+              a(href="#") 任三
+            li(desc="R4")
+              a(href="#") 任四
+            li.active(desc="R5")
+              a(href="#") 任五
+            li(desc="R6")
+              a(href="#") 任六
+            li(desc="R7")
+              a(href="#") 任七
+            li(desc="R8")
+              a(href="#") 任八
+
+      //
+      // 主体部分
+      .grid-1.clearfix
+        // 左侧
+        .article
+          .plays_box
+            .plays
+              .mod-select-info.ssytips
+                p#zx_sm.plays-memo
+                  i.ico.ico-info-s
+                  b 玩法提示：
+                  span
+                    | 从01～11中任选5个或多个号码，所选号码与开奖号码相同，即中奖
+                    em.red 540
+                    | 元
+              .mod-select-bolls.code_box
+                .hd
+                  h3.clearfix
+                    span.t1#play_tips
+                      em 选号区
+                      | 至少选5个
+                    span.t2
+                      em 操作区
+                      |  快捷选号
+                .bd
+                  .tools-boll-list
+                    .boll-item.boll-item-col3.sd_zx_r5
+                      .k
+                        span.k1 号码
+                          span.caret
+                        span.k2 遗漏数据
+                      .v
+                        .boll-list(unselectable="on", onselectstart="return false;")
+                          ul.clearfix
+                            li
+                              em.btn-boll 01
+                              span 0
+                            li
+                              em.btn-boll 02
+                              span 0
+                            li
+                              em.btn-boll 03
+                              span.red 5
+                            li
+                              em.btn-boll 04
+                              span 1
+                            li
+                              em.btn-boll 05
+                              span 1
+                            li
+                              em.btn-boll 06
+                              span 2
+                            li
+                              em.btn-boll 07
+                              span 0
+                            li
+                              em.btn-boll 08
+                              span 3
+                            li
+                              em.btn-boll 09
+                              span 0
+                            li
+                              em.btn-boll 10
+                              span 1
+                            li
+                              em.btn-boll 11
+                              span 0
+                      .t
+                        .tool-list
+                          ul.clearfix.dxjo
+                            - const array = ['全', '大', '小', '奇', '偶']
+                            each item in array
+                              li
+                                a.btn.btn-middle(href="#") #{item}
+                            li.lnk(href="#") 清除
+                  .ft
+                    p.sel_info
+                      | 您选了
+                      b 0
+                      |  注，共
+                      b 0
+                      |  元
+                      em
+
+          .mod-select-result
+            .hd.confirm_sel_code_list(style="margin-left: 200px;text-align: left;")
+              button#confirm_sel_code.btn(type="button")
+                span.btn-large.btn-slt-ok
+                  i.l
+                    i.r 确认选号
+              a.lnk.lnk-calcel(href="javascript:;") 清空选号
+            .bd.clearfix
+              .result
+                .content
+                  ul.clearfix.codelist
+              .qkmethod
+                ul(plays="Z1|直选")
+                  li
+                    a.btn-middle(count="1", href="#") 机选1注
+                  li
+                    a.btn-middle(count="5", href="#") 机选5注
+                  li
+                    a.btn-middle(count="10", href="#") 机选10注
+                  li
+                    a.btn-middle(count="0", href="#") 清空列表
+
+          #result.mod-select-result
+            .ft
+              .total
+                | 您选了
+                b#count.em 0
+                |  注， 倍投
+                input#mul.text(type="text", value="1")
+                |  倍，共
+                b#money.em(style="display: inline-block;") 0
+                | 元
+
+          .mod-submit
+            button#post_data.btn.btn-sd
+              span.btn-large2.btn-large2-primary 立即投注
+
+        // 右侧
+        .aside
+          .mod-aside.mod-aside-xssckj
+            .hd.clearfix
+              h3
+                |  11选5 第
+                em#open_issue.red 022478
+                |  期 开奖
+              .ball-num.clearfix
+                ul#open_code_list
+                  - const list = ['09', '02', '01', '07', '11']
+                  each item in list
+                    li.ico-ball3 #{item}
+              p.kj-date 今天已售78期，还剩0期
+
+            .bd
+              .kpkjcode
+
+                table(width="100%")
+                  thead
+                    tr(style="line-height: 24px;")
+                      th 期号
+                      th 开奖号码
+                      th
+                        span 大小比
+                        span 奇偶比
+                  tbody
+                    tr(issue="022478")
+                      td.issgray 022478
+                      td
+                        em.red.syycode 09 02
+                        em.red 01
+                        em.gray666  07 11
+                      td
+                        span.gray666 3:2
+                        span.gray666 4:1
+
+            .ft.text-right.muted(style="margin-top: 6px;")
+              a.lnk(href="javascript:void(0)", target="_blank") 查询历史开奖
+              |  |
+              a.lnk(href="javascript:void(0)", target="_blank")  查看走势图表
+
+  script(src="/js/index.js", charset="utf-8")
 
