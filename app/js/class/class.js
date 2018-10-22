@@ -1,5 +1,6 @@
 {
   // 基本定义: 使用class关键字
+  // constructor: 给对象声明属性时用，只强调方法，没有属性时，可以不写
   class Parent {
     constructor (name='beach') {
       this.name = name;
